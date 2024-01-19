@@ -40,12 +40,14 @@ async function loginUser() {
 async function signUpUser() {
   const x = document.getElementById("email-signin").querySelector("input").value;
   const y = document.getElementById("password-signin").querySelector("input").value;
+  const z = document.getElementById("username-signin").querySelector("input").value;
 
   fetch(url + "sign", {
     method: "POST",
     body: JSON.stringify({
       email: x,
       password: y,
+      name : z
     }),
     headers: {
       "Content-type": "application/json; charset=UTF-8",
