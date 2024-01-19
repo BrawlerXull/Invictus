@@ -12,22 +12,27 @@
 <body>
     <div class="wrapper">
         <div class="form-container sign-up">
-            <form onsubmit="submitForm()" action="#">
+            <form action="#" onsubmit="signUp()">
                 <h2>sign up</h2>
-                <div class="form-group" id="usernameInput" >
-                    <input  type="text" required>
-                    <i class="fas fa-user"></i>
-                    <label for="">dsfa</label>
-                </div>
-                <div class="form-group" id="emailInput">
+                <div class="form-group" id="userSign">
                     <input type="text" required>
                     <i class="fas fa-user"></i>
+                    <label for="">username</label>
+                </div>
+                <div class="form-group" id="emailSign">
+                    <input type="email" required>
+                    <i class="fas fa-at"></i>
                     <label for="">email</label>
                 </div>
-                <div class="form-group" id="passwordInput">
+                <div class="form-group" id="passSign">
                     <input type="password" required>
                     <i class="fas fa-lock"></i>
                     <label for="">password</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" required>
+                    <i class="fas fa-lock"></i>
+                    <label for="">confirm password</label>
                 </div>
                 <button type="submit" class="btn">sign up</button>
                 <div class="link">
@@ -36,14 +41,14 @@
             </form>
         </div>
         <div class="form-container sign-in">
-            <form action="#">
+            <form onsubmit="loginUp()" action="#">
                 <h2>login</h2>
-                <div class="form-group">
+                <div class="form-group" id="userLog">
                     <input type="text" required>
                     <i class="fas fa-user"></i>
                     <label for="">username</label>
                 </div>
-                <div class="form-group">
+                <div class="form-group" id="passLog">
                     <input type="password" required>
                     <i class="fas fa-lock"></i>
                     <label for="">password</label>

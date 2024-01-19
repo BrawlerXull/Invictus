@@ -12,37 +12,40 @@ signInLink.addEventListener("click", () => {
   wrapper.classList.remove("animated-signin");
 });
 
-function submitForm() {
-  console.log("Submit clicked");
-  const url = "http://localhost:5020/register";
+async function loginUp() {
+  const x = document.getElementById("userLog").querySelector("input").value;
+  const y = document.getElementById("passLog").querySelector("input").value;
+  const url = "http://localhost:5100/";
 
-  const userName = document.getElementById("usernameInput").querySelector("input").value;
-  const email = document.getElementById("emailInput").querySelector("input").value;
-  const password = document.getElementById("passwordInput").querySelector("input").value;
-
-  const newUser = {
-    username: userName,
-    email: email,
-    password: password,
-  };
-
-  fetch(url, {
+  fetch(url + "login", {
     method: "POST",
+    body: JSON.stringify({
+      email :x,
+      password : y
+    }),
     headers: {
-      "Content-Type": "application/json",
+      "Content-type": "application/json; charset=UTF-8",
     },
-    body: JSON.stringify(newUser),
   })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log("Data received:", data);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+    .then((response) => response.json())
+    .then((json) => console.log(json));
+}
+
+async function signUp() {
+  const x = document.getElementById("userSign").querySelector("input").value;
+  const y = document.getElementById("passSign").querySelector("input").value;
+  const url = "http://localhost:5100/";
+
+  fetch(url + "sign", {
+    method: "POST",
+    body: JSON.stringify({
+      email :x,
+      password : y
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => console.log(json));
 }
