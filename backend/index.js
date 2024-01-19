@@ -15,9 +15,11 @@ app.post('/sign', async (req, res) => {
   try {
       const x = req.body.email;
       const y = req.body.password;
+      const z = req.body.name
       const newUser = {
           email: x,
-          password: y
+          password: y,
+          name : z
       };
       
       const resp = await User.findOne({ email: x });
