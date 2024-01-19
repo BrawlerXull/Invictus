@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Redirect Example</title>
     <script>
-        window.location.href = './screens/auth/index.html';
+      const isLoggedIn = localStorage.getItem("isLoggedIn");
+      console.log(isLoggedIn);
+      if (isLoggedIn === "true") {
+        window.location.href = "./screens/home/index.html";
+      }
+      window.location.href = "./screens/auth/index.html";
     </script>
-</head>
-<body>
-</body>
+  </head>
+  <body></body>
 </html>

@@ -1,5 +1,11 @@
 const url = "https://invictus-backend.vercel.app/";
 
+const isLoggedIn = localStorage.getItem('isLoggedIn');
+console.log(isLoggedIn)
+if (isLoggedIn === 'true') {
+  window.location.href = '../home/index.html';
+}
+
 function showAlert(message) {
   alert(message);
 }
@@ -21,6 +27,7 @@ async function loginUser() {
     .then((response) => {
       console.log("Status code:", response.status);
       if (response.ok) {
+        localStorage.setItem('isLoggedIn', 'true');
         window.location.href = '../home/index.html';
       } else {
         showAlert("Login failed.\n Check username or password");
@@ -47,6 +54,7 @@ async function signUpUser() {
     .then((response) => {
       console.log("Status code:", response.status);
       if (response.ok) {
+        localStorage.setItem('isLoggedIn', 'true');
         window.location.href = '../home/index.html';
       } else {
         showAlert("SignUp failed.\n User already exists");
