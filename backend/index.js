@@ -11,36 +11,51 @@ app.get("/", (req, res) => {
   res.send("hello");
 });
 
-app.post('/sign',async(req,res)=>{
-    const x = req.body.email
-    const y = req.body.password
-    const newUser = {
-        email : x,
-        password : y
-    }
-    const resp = await User.findOne({email : x});
-    if(resp){
-       return res.status(400).send({"response" : "user already exist"});
-    }
-    const result  = await User.insertMany(newUser);
-    console.log(result)
+app.post('/sign', async (req, res) => {
+  try {
+      const x = req.body.email;
+      const y = req.body.password;
+      const newUser = {
+          email: x,
+          password: y
+      };
+      
+      const resp = await User.findOne({ email: x });
 
-    res.send({"response" : "New user created"});
-})
+      if (resp) {
+          return res.status(409).send({ "response": "User already exists" });
+      }
 
-app.post('/login',async(req,res)=>{
-    const x = req.body.email
-    const y = req.body.password
-    const resp = await User.findOne({email : x , password : y});
-    if(resp){
-       return res.status(200).send({"response" : "successfly login"});
-    }
-    res.status(400).send({"value" : "Check username or password"});
-})
+      const result = await User.create(newUser);
+      console.log(result);
 
-app.listen("5100", () => {
-  console.log("server started");
+      res.status(201).send({ "response": "New user created" });
+  } catch (error) {
+      console.error(error);
+      res.status(500).send({ "response": "Internal Server Error" });
+  }
 });
 
+app.post('/login', async (req, res) => {
+  try {
+      const x = req.body.email;
+      const y = req.body.password;
+
+      const resp = await User.findOne({ email: x, password: y });
+
+      if (resp) {
+          res.status(200).send({ "response": "Successfully logged in" });
+      } else {
+          res.status(401).send({ "response": "Check username or password" });
+      }
+  } catch (error) {
+      console.error(error);
+      res.status(500).send({ "response": "Internal Server Error" });
+  }
+});
+
+app.listen("5100", () => {
+  console.log("Server started");
+});
 
 
