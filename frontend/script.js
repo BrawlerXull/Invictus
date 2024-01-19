@@ -21,7 +21,7 @@ async function loginUser() {
     .then((response) => {
       console.log("Status code:", response.status);
       if (response.ok) {
-        window.location.href = '../home/index.html';
+        window.location.href = './screens/home/index.html';
       } else {
         showAlert("Login failed.\n Check username or password");
       }
@@ -47,7 +47,7 @@ async function signUpUser() {
     .then((response) => {
       console.log("Status code:", response.status);
       if (response.ok) {
-        window.location.href = '../home/index.html';
+        window.location.href = './screens/home/index.html';
       } else {
         showAlert("SignUp failed.\n User already exists");
       }
