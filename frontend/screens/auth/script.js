@@ -12,6 +12,8 @@ function showAlert(message) {
 }
 
 async function loginUser() {
+  showLoadingSpinner();
+
   const x = document.getElementById("email-login").querySelector("input").value;
   const y = document.getElementById("password-login").querySelector("input").value;
 
@@ -26,6 +28,8 @@ async function loginUser() {
     },
   })
     .then((response) => {
+      hideLoadingSpinner();
+
       console.log("Status code:", response.status);
       if (response.ok) {
         localStorage.setItem('isLoggedIn', 'true');
@@ -40,6 +44,8 @@ async function loginUser() {
 }
 
 async function signUpUser() {
+  showLoadingSpinner();
+
   const x = document.getElementById("email-signin").querySelector("input").value;
   const y = document.getElementById("password-signin").querySelector("input").value;
   const z = document.getElementById("username-signin").querySelector("input").value;
@@ -56,6 +62,8 @@ async function signUpUser() {
     },
   })
     .then((response) => {
+      hideLoadingSpinner();
+
       console.log("Status code:", response.status);
       if (response.ok) {
         localStorage.setItem('isLoggedIn', 'true');
@@ -129,3 +137,18 @@ const container = document.querySelector(".container"),
     login.addEventListener("click", ( )=>{
         container.classList.remove("active");
     });
+
+    function showLoadingSpinner() {
+      const loadingSpinner = document.querySelector(".loading-spinner");
+      const beingProcessed = document.querySelector(".being-process");
+      loadingSpinner.style.display = "block";
+      beingProcessed.style.display = "block";
+    }
+    
+    // Function to hide the loading spinner
+    function hideLoadingSpinner() {
+      const loadingSpinner = document.querySelector(".loading-spinner");
+      const beingProcessed = document.querySelector(".being-process");
+      loadingSpinner.style.display = "none";
+      beingProcessed.style.display = "none";
+    }
