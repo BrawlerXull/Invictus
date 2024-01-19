@@ -1,22 +1,37 @@
 
-const url = "https://invictus-backend.vercel.app/"
+
+const url = "https://invictus-backend.vercel.app/";
+
+function showAlert(message, type = "info") {
+  alert(message);
+
+}
 
 async function loginUser() {
   const x = document.getElementById("email-login").querySelector("input").value;
   const y = document.getElementById("password-login").querySelector("input").value;
-  console.log(x)
-  console.log(y)
+
   fetch(url + "login", {
     method: "POST",
     body: JSON.stringify({
-      email :x,
-      password : y
+      email: x,
+      password: y,
     }),
     headers: {
       "Content-type": "application/json; charset=UTF-8",
     },
   })
-    .then((response) => response.json())
+    .then((response) => {
+      console.log("Status code:", response.status);
+
+      if (response.ok) {
+        showAlert("Successfully logged in", "success");
+      } else {
+        showAlert("Login failed. Check username or password", "error");
+      }
+
+      return response.json();
+    })
     .then((json) => console.log(json));
 }
 
@@ -27,16 +42,28 @@ async function signUpUser() {
   fetch(url + "sign", {
     method: "POST",
     body: JSON.stringify({
-      email :x,
-      password : y
+      email: x,
+      password: y,
     }),
     headers: {
       "Content-type": "application/json; charset=UTF-8",
     },
   })
-    .then((response) => response.json())
+    .then((response) => {
+      console.log("Status code:", response.status);
+
+      if (response.ok) {
+        showAlert("New user created", "success");
+      } else {
+        showAlert("User creation failed. User already exists", "error");
+      }
+
+      return response.json();
+    })
     .then((json) => console.log(json));
 }
+
+
 
 
 
