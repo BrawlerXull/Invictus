@@ -56,6 +56,25 @@ app.post('/login', async (req, res) => {
   }
 });
 
+app.post('/getuser', async (req, res) => {
+  try {
+      const x = req.body.email;
+
+      const resp = await User.findOne({ email: x });
+
+      if (resp) {
+          res.status(200).send({ "response": "Successfully found user" ,"user":resp});
+      } else {
+          res.status(401).send({ "response": "User not found" });
+      }
+  } catch (error) {
+      console.error(error);
+      res.status(500).send({ "response": "Internal Server Error" });
+  }
+});
+
+
+
 app.listen("5100", () => {
   console.log("Server started");
 });

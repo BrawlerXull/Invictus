@@ -29,6 +29,7 @@ async function loginUser() {
       console.log("Status code:", response.status);
       if (response.ok) {
         localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('email', x);
         window.location.href = '../home/index.html';
       } else {
         showAlert("Login failed.\n Check username or password");
@@ -58,6 +59,7 @@ async function signUpUser() {
       console.log("Status code:", response.status);
       if (response.ok) {
         localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('email', x);
         window.location.href = '../home/index.html';
       } else {
         showAlert("SignUp failed.\n User already exists");
