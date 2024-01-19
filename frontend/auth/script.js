@@ -1,10 +1,7 @@
-
-
 const url = "https://invictus-backend.vercel.app/";
 
-function showAlert(message, type = "info") {
+function showAlert(message) {
   alert(message);
-
 }
 
 async function loginUser() {
@@ -23,13 +20,11 @@ async function loginUser() {
   })
     .then((response) => {
       console.log("Status code:", response.status);
-
       if (response.ok) {
-        showAlert("Successfully logged in", "success");
+        window.location.href = '../home/index.html';
       } else {
-        showAlert("Login failed. Check username or password", "error");
+        showAlert("Login failed.\n Check username or password");
       }
-
       return response.json();
     })
     .then((json) => console.log(json));
@@ -51,13 +46,11 @@ async function signUpUser() {
   })
     .then((response) => {
       console.log("Status code:", response.status);
-
       if (response.ok) {
-        showAlert("New user created", "success");
+        window.location.href = '../home/index.html';
       } else {
-        showAlert("User creation failed. User already exists", "error");
+        showAlert("SignUp failed.\n User already exists");
       }
-
       return response.json();
     })
     .then((json) => console.log(json));
