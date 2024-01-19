@@ -1,12 +1,11 @@
 
+const url = "https://invictus-backend.vercel.app/"
 
 async function loginUser() {
   const x = document.getElementById("email-login").querySelector("input").value;
   const y = document.getElementById("password-login").querySelector("input").value;
   console.log(x)
   console.log(y)
-  const url = "http://localhost:5100/";
-
   fetch(url + "login", {
     method: "POST",
     body: JSON.stringify({
@@ -24,7 +23,6 @@ async function loginUser() {
 async function signUpUser() {
   const x = document.getElementById("email-signin").querySelector("input").value;
   const y = document.getElementById("password-signin").querySelector("input").value;
-  const url = "http://localhost:5100/";
 
   fetch(url + "sign", {
     method: "POST",
