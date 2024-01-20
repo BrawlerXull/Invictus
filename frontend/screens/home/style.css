@@ -1,5 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Sofia');
 
+@import url('https://fonts.googleapis.com/css?family=Sofia');
+@import url('https://fonts.googleapis.com/css?family=Trirong');
+@import url('https://fonts.googleapis.com/css?family=Poppins');
 
 
 body{
@@ -7,7 +9,7 @@ body{
     background-image: url(http://www.transparenttextures.com/patterns/xv.png);
 }
 
-.company-name {
+#company-name {
     font-family: "Sofia", serif;
 }
 

@@ -4,3 +4,7 @@
 body{
     background-image: url(http://www.transparenttextures.com/patterns/xv.png);
 }
+
+#company-name {
+    font-family: "Sofia", serif;
+}
