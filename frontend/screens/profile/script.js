@@ -1,5 +1,6 @@
 const url = "https://invictus-backend.vercel.app/";
 const isLoggedIn = localStorage.getItem("isLoggedIn");
+
 console.log(isLoggedIn);
 if (isLoggedIn === "false") {
   window.location.href = "../auth/index.html";
@@ -43,4 +44,9 @@ fetch(url + 'getuser' ,{
 function sendTo(url1) {
   console.log(url1);
   window.location.href = `../${url1}/index.html`;
+}
+
+function signOut(){
+  localStorage.setItem('isLoggedIn', 'false');
+  window.location.href = '../auth/index.html';
 }

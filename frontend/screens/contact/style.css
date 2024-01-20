@@ -1,8 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Sofia');
+@import url('https://fonts.googleapis.com/css?family=Trirong');
+@import url('https://fonts.googleapis.com/css?family=Poppins');
 body{
     background-image: url(http://www.transparenttextures.com/patterns/xv.png);
-}
-@media (min-width: 1000px) {
-    #headcontact{
-        margin-left: 110px;
-    }
 }
