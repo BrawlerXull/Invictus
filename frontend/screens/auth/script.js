@@ -47,6 +47,7 @@ async function signUpUser() {
   showLoadingSpinner();
 
   const x = document.getElementById("email-signin").querySelector("input").value;
+  const address = document.getElementById("address-signin").querySelector("input").value;
   const y = document.getElementById("password-signin").querySelector("input").value;
   const z = document.getElementById("username-signin").querySelector("input").value;
 
@@ -55,7 +56,8 @@ async function signUpUser() {
     body: JSON.stringify({
       email: x,
       password: y,
-      name : z
+      name : z,
+      address : address
     }),
     headers: {
       "Content-type": "application/json; charset=UTF-8",

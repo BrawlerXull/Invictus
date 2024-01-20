@@ -12,7 +12,11 @@ const UserSchema = mongoose.Schema({
     name : {
         required : true,
         type : String
-    }
+    },
+    address : {
+        required : true,
+        type : String
+    },
 })
 
 module.exports = mongoose.model('User', UserSchema);
