@@ -51,15 +51,21 @@
     </nav>
     <div class="flex flex-col md:flex-row justify-center items-center h-[90vh]">
         <img src="../../img/frame.png" alt="">
-        <div class="profile-section mx-[100px] text-white">
-            <p class="profile-info text-4xl font-bold mt-2 " id="owner"></p>
-            <p class="profile-info text-2xl font-semibold  mt-2 " id="coowner1"></p>
-            <p class="profile-info text-2xl font-semibold  mt-2 " id="coowner2"></p>
-            <p class="profile-info text-3xl font-bold  mt-2 " id="address"></p>
-            <p class="profile-info text-3xl font-bold  mt-2 " id="phone"></p>
+        <div class="">
+            <div class="profile-section mx-[100px]  text-white">
+                <p class="profile-info text-4xl font-bold mt-2 " id="owner"></p>
+                <p class="profile-info text-2xl font-semibold  mt-2 " id="coowner1"></p>
+                <p class="profile-info text-2xl font-semibold  mt-2 " id="coowner2"></p>
+                <p class="profile-info text-3xl font-bold  mt-2 " id="address"></p>
+                <p class="profile-info text-3xl font-bold  mt-2 " id="phone"></p>
+            </div>
+            <div class="text-white mx-[100px] text-center md:block bg-indigo-500 cursor-pointer px-2 py-2 rounded hover:bg-indigo-300 hover:text-black mt-5 w-[30%]"
+                onclick="signOut()">
+                <a>Export the product data</a>
+            </div>
         </div>
     </div>
-    <button onclick="signOut()">Signout</button>
+
 </body>
 
 <script src="./script.js"></script>
