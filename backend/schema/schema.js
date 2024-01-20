@@ -26,6 +26,10 @@ const UserSchema = mongoose.Schema({
     phone : {
         type : String,
         required : true
+    },
+    contact : {
+        type : String ,
+        required : true
     }
 })
 
