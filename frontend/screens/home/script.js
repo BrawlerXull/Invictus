@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-const nameElement = document.getElementById("name");
 const companyElement = document.getElementById("company-name");
 
 const userEmail = localStorage.getItem("email");
@@ -32,7 +31,6 @@ fetch(url + "getuser", {
   .then((resp) => resp.json())
   .then((json) => {
     companyElement.innerHTML = json.user.company
-    nameElement.innerHTML = json.user.name;
     console.log(json);
   });
 
@@ -47,3 +45,27 @@ function dropdownmenu() {
   dropdown.classList.toggle("hidden");
 }
 
+
+const dropdownList = document.createElement('ul')
+
+const dropdownItems = ['Item 1', 'Item 2', 'Item 3'];
+console.log("1")
+dropdownItems.forEach((item) => {
+  const listItem = document.createElement('li');
+  listItem.classList.add('px-4', 'py-2', 'hover:bg-gray-100', 'cursor-pointer');
+  listItem.textContent = item;
+
+
+  listItem.addEventListener('click', () => {
+    console.log(`Selected: ${item}`);
+  });
+
+  dropdownList.appendChild(listItem);
+});
+
+console.log("2")
+
+function dropdownmenu() {
+  var dropdown = document.getElementById("dropdown-menu");
+  dropdown.classList.toggle("hidden");
+}
