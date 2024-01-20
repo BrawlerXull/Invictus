@@ -25,9 +25,9 @@ fetch(url + 'getuser' ,{
   })
   .then((json) => {
     comapnyDiv.innerText = json.user.company
-    ownerDiv.innerText = json.user.ownerDiv
-    coowner1Div.innerText = json.user.coowner1Div
-    coowner2Div.innerText = json.user.coowner2Div
+    ownerDiv.innerText = json.user.owner
+    coowner1Div.innerText = json.user.coowner1
+    coowner2Div.innerText = json.user.coowner2
     addressDiv.innerText = json.user.address
     phoneDiv.innerText = json.user.phone
     console.log(json)
