@@ -1,5 +1,6 @@
 const express = require("express");
 const User = require("./schema/schema");
+const Query = require("./schema/query");
 const cors = require("cors");
 require("./db/db");
 const app = express();
@@ -38,6 +39,31 @@ app.post("/sign", async (req, res) => {
     }
 
     const result = await User.create(newUser);
+    console.log(result);
+
+    res.status(201).send({ response: "New user created" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ response: error });
+  }
+});
+
+app.post("/query", async (req, res) => {
+  try {
+    const x = req.body.query;
+    const y = req.body.email;
+    const newUser = {
+      email: x,
+      query : y
+    };
+
+    const resp = await Query.findOne({ email: x });
+
+    if (resp) {
+      return res.status(409).send({ response: "User already exists" });
+    }
+
+    const result = await Query.create(newUser);
     console.log(result);
 
     res.status(201).send({ response: "New user created" });

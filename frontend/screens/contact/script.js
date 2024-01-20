@@ -34,3 +34,22 @@ function signOut() {
   localStorage.setItem("email", "");
   window.location.href = "../auth/index.html";
 }
+
+function contact(){
+    const newInput = document.getElementById("query");
+    fetch(url + "query", {
+        method: "POST",
+        body: JSON.stringify({
+          email: userEmail,
+          query : newInput.value
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((resp) => resp.json())
+        .then((json) => {
+          console.log(json);
+        });
+
+}

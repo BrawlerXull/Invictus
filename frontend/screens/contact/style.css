@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css?family=Sofia');
+
 body{
     background-image: url(http://www.transparenttextures.com/patterns/xv.png);
 }
@@ -5,4 +8,8 @@ body{
     #headcontact{
         margin-left: 110px;
     }
+}
+
+.headcontact{
+    font-family: "Sofia", serif;
 }
