@@ -142,32 +142,3 @@ function addProduct(){
   updateInDB(data.products)
   console.log(data.products)
 }
-
-
-function convertArrayOfObjectsToCSV(data) {
-  const separator = ',';
-  const keys = Object.keys(data[0]);
-
-  let csv = keys.join(separator) + '\n';
-
-  data.forEach(item => {
-      csv += keys.map(key => item[key]).join(separator) + '\n';
-  });
-
-  return csv;
-}
-
-function downloadCSV(data) {
-  const csvContent = convertArrayOfObjectsToCSV(data);
-  const blob = new Blob([csvContent], { type: 'text/csv' });
-  const link = document.createElement('a');
-
-  link.href = URL.createObjectURL(blob);
-  link.download = 'products.csv';
-  link.click();
-}
-
-function makeCSV(){
-  console.log("Called")
-  downloadCSV(data.products);
-}
