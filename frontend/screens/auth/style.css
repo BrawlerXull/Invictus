@@ -62,7 +62,7 @@ body{
 }
 
 .container.active .forms{
-    height: 800px;
+    height: 810px;
 }
 .container .form .title{
     position: relative;
@@ -83,7 +83,7 @@ body{
 
 .form .input-field{
     position: relative;
-    height: 50px;
+    height: 45px;
     width: 100%;
     margin-top: 30px;
 }

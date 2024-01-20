@@ -26,7 +26,7 @@ def main():
             X_predict = df_predict[['year']]
             y_predict = df_predict['profit']
 
-            X_train, X_test, y_train, y_test = train_test_split(X_predict, y_predict, test_size=0, random_state=69)
+            X_train, X_test, y_train, y_test = train_test_split(X_predict, y_predict, test_size=0.2, random_state=69)
 
             model_predict = LinearRegression()
             model_predict.fit(X_train, y_train)
