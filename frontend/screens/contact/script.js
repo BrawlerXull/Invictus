@@ -58,6 +58,7 @@ async function sendQuery(){
   })
     .then((resp) => resp.json())
     .then((json) => {
+      queryInput.value = "";
       console.log(json);
     });
 }
