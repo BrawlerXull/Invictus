@@ -1,3 +1,8 @@
 body{
     background-image: url(http://www.transparenttextures.com/patterns/xv.png);
 }
+@media (min-width: 1000px) {
+    #headcontact{
+        margin-left: 110px;
+    }
+}

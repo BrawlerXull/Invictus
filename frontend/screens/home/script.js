@@ -6,12 +6,16 @@ if (isLoggedIn === "false") {
   window.location.href = "../auth/index.html";
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  const button = document.querySelector('[data-collapse-toggle="navbar-default"]');
-  const menu = document.getElementById('navbar-default');
+var fruits = ["Apple", "Banana", "Orange", "Grape", "Strawberry"];
 
-  button.addEventListener('click', function () {
-      menu.classList.toggle('hidden');
+document.addEventListener("DOMContentLoaded", function () {
+  const button = document.querySelector(
+    '[data-collapse-toggle="navbar-default"]'
+  );
+  const menu = document.getElementById("navbar-default");
+
+  button.addEventListener("click", function () {
+    menu.classList.toggle("hidden");
   });
 });
 
@@ -30,7 +34,8 @@ fetch(url + "getuser", {
 })
   .then((resp) => resp.json())
   .then((json) => {
-    companyElement.innerHTML = json.user.company
+    companyElement.innerHTML = json.user.company;
+    dropdown(json.user.products);
     console.log(json);
   });
 
@@ -38,4 +43,15 @@ function signOut() {
   localStorage.setItem("isLoggedIn", "false");
   localStorage.setItem("email", "");
   window.location.href = "../auth/index.html";
+}
+
+function dropdown(fruits) {
+  var selectElement = document.getElementById("fruitSelection");
+  for (var i = 0; i < fruits.length; i++) {
+    var option = document.createElement("option");
+    option.value = fruits[i];
+    option.text = fruits[i].name;
+    selectElement.add(option);
+    console.log(fruits[i]);
+  }
 }
