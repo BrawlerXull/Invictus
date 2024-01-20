@@ -1,4 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Sofia');
+
+
+
 body{
     background-color: #0096cc;
     background-image: url(http://www.transparenttextures.com/patterns/xv.png);
+}
+
+.company-name {
+    font-family: "Sofia", serif;
 }
