@@ -17,6 +17,12 @@ const UserSchema = mongoose.Schema({
         required : true,
         type : String
     },
+    coowner1: {
+        type: String
+    },
+    coowner2: {
+        type: String
+    },
 })
 
 module.exports = mongoose.model('User', UserSchema);

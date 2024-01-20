@@ -50,6 +50,8 @@ async function signUpUser() {
   const address = document.getElementById("address-signin").querySelector("input").value;
   const y = document.getElementById("password-signin").querySelector("input").value;
   const z = document.getElementById("username-signin").querySelector("input").value;
+  const coowner1 = document.getElementById("co-username1-signin").querySelector("input").value;
+  const coowner2 = document.getElementById("co-username2-signin").querySelector("input").value;
 
   fetch(url + "sign", {
     method: "POST",
@@ -57,7 +59,9 @@ async function signUpUser() {
       email: x,
       password: y,
       name : z,
-      address : address
+      address : address,
+      coowner1 : coowner1,
+      coowner2:coowner2
     }),
     headers: {
       "Content-type": "application/json; charset=UTF-8",
