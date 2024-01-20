@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="./style.css" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <title>Profile Page</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat&family=Fira+Sans&family=Libre+Baskerville&family=Sevillana&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat&family=Fira+Sans&family=Libre+Baskerville&family=Merriweather+Sans&family=Sevillana&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -51,6 +60,26 @@
     </nav>
     <div class="flex flex-col md:flex-row justify-center items-center h-[90vh]">
         <img src="../../img/frame.png" alt="">
+        <div>
+            <div class="profile-section mx-[100px] text-black rounded-lg py-5 bg-[wheat]">
+                <p class="profile-info text-5xl font-bold mt-2 px-10 owner" id="owner"></p>
+                <p class="font-semibold  mt-2 px-10 coowner mt-5">Co-owners</p>
+                <p class="profile-info text-2xl font-semibold  mt-2 px-10 coowner" id="coowner1"></p>
+                <p class="profile-info text-2xl font-semibold px-10 coowner" id="coowner2"></p>
+                <p class="font-semibold  mt-2 px-10 coowner mt-[15px]">Address</p>
+                <p class="profile-info text-3xl font-bold px-10 address" id="address"></p>
+                <p class="font-semibold  mt-2 px-10 coowner mt-2">Phone No</p>
+                <p class="profile-info text-3xl font-bold px-10 phone" id="phone"></p>
+                <div class="text-white m-auto text-center md:block bg-indigo-500 cursor-pointer px-2 py-2 rounded hover:bg-indigo-300 hover:text-black mt-5 w-[30%]"
+                    onclick="signOut()">
+                    <a>Signout</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- <div class="flex flex-col md:flex-row justify-center items-center h-[90vh]">
+        <img src="../../img/frame.png" alt="">
         <div class="">
             <div class="profile-section mx-[100px]  text-white">
                 <p class="profile-info text-4xl font-bold mt-2 " id="owner"></p>
@@ -64,7 +93,7 @@
                 <a>Export the product data</a>
             </div>
         </div>
-    </div>
+    </div> -->
 
 </body>
 
