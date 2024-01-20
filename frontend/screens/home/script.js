@@ -1,3 +1,5 @@
+
+
 const url = "https://invictus-backend.vercel.app/";
 // const url = "http://localhost:5100/";
 const isLoggedIn = localStorage.getItem("isLoggedIn");
@@ -6,7 +8,6 @@ if (isLoggedIn === "false") {
   window.location.href = "../auth/index.html";
 }
 
-var fruits = ["Apple", "Banana", "Orange", "Grape", "Strawberry"];
 
 document.addEventListener("DOMContentLoaded", function () {
   const button = document.querySelector(
@@ -21,8 +22,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const companyElement = document.getElementById("company-name");
 
+var data;
+
 const userEmail = localStorage.getItem("email");
 console.log(userEmail);
+
 fetch(url + "getuser", {
   method: "POST",
   body: JSON.stringify({
@@ -36,6 +40,7 @@ fetch(url + "getuser", {
   .then((json) => {
     companyElement.innerHTML = json.user.company;
     dropdown(json.user.products);
+    data = json.user;
     console.log(json);
   });
 
@@ -46,12 +51,62 @@ function signOut() {
 }
 
 function dropdown(fruits) {
-  var selectElement = document.getElementById("fruitSelection");
+  var selectElement = document.getElementById("productSelection");
   for (var i = 0; i < fruits.length; i++) {
     var option = document.createElement("option");
-    option.value = fruits[i];
     option.text = fruits[i].name;
     selectElement.add(option);
     console.log(fruits[i]);
   }
+}
+
+
+const productNameElement = document.getElementById("product-name");
+const productSelection = document.getElementById("productSelection");
+const availableQuantity = document.getElementById("available-quantity");
+const newInput = document.getElementById("items-input");
+const productRight = document.getElementById("product-right");
+
+
+
+
+
+productSelection.addEventListener("change", function () {
+  productRight.style.display = "block";
+    console.log(productSelection)
+    var selectedProduct = productSelection.value;
+    console.log(data.products[productSelection.selectedIndex].quantity)
+    availableQuantity.innerText = data.products[productSelection.selectedIndex].quantity
+    productNameElement.innerHTML = "Selected Product: " + selectedProduct;
+});
+
+
+
+function updateQuantities(){
+  console.log("sdfa")
+  const inputValue = newInput.value;
+  data.products[productSelection.selectedIndex].quantity = inputValue;
+  newInput.value = ""
+  updateInDB(data.products)
+  console.log(inputValue)
+  console.log(data.products[productSelection.selectedIndex])
+}
+
+function updateInDB(updatedData){
+  console.log("update",updatedData)
+  fetch(url + "updateproducts", {
+    method: "POST",
+    body: JSON.stringify({
+      email: userEmail,
+      products : updatedData
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((resp) => resp.json())
+    .then((json) => {
+      console.log(updatedData)
+      console.log(json);
+    });
 }

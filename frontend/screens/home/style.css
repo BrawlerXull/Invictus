@@ -10,3 +10,7 @@ body{
 .company-name {
     font-family: "Sofia", serif;
 }
+
+.product-right {
+    display: none;
+}
