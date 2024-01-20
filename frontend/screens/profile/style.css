@@ -15,12 +15,3 @@ body {
     font-family: "Poppins", serif;
 
 }
-
-.owner{
-    font-family:'Sevillana', cursive;
-}
-
-.owner:hover {
-    cursor: pointer;
-    color: darkblue;
-}
