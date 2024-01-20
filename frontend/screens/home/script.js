@@ -39,33 +39,3 @@ function signOut() {
   localStorage.setItem("email", "");
   window.location.href = "../auth/index.html";
 }
-
-function dropdownmenu() {
-  var dropdown = document.getElementById("dropdown-menu");
-  dropdown.classList.toggle("hidden");
-}
-
-
-const dropdownList = document.createElement('ul')
-
-const dropdownItems = ['Item 1', 'Item 2', 'Item 3'];
-console.log("1")
-dropdownItems.forEach((item) => {
-  const listItem = document.createElement('li');
-  listItem.classList.add('px-4', 'py-2', 'hover:bg-gray-100', 'cursor-pointer');
-  listItem.textContent = item;
-
-
-  listItem.addEventListener('click', () => {
-    console.log(`Selected: ${item}`);
-  });
-
-  dropdownList.appendChild(listItem);
-});
-
-console.log("2")
-
-function dropdownmenu() {
-  var dropdown = document.getElementById("dropdown-menu");
-  dropdown.classList.toggle("hidden");
-}
