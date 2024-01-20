@@ -30,6 +30,9 @@ const UserSchema = mongoose.Schema({
     contact : {
         type : String,
         // required : true
+    },
+    company : {
+        type : String
     }
 })
 
