@@ -90,7 +90,7 @@
       <div class="row align-items-center g-lg-5 py-5">
         <div class="col-lg-7 text-center text-lg-start">
           <h1
-            class="display-4 fw-bold lh-1 text-body-emphasis mb-3 headcontact"
+            class="display-4 fw-bold lh-1 text-body-emphasis mb-3"
             id="headcontact"
           >
             Contact Us
@@ -103,6 +103,25 @@
           <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
             <div class="form-floating mb-3">
               <input
+                type="email"
+                class="form-control"
+                id="floatingInput"
+                placeholder="name@example.com"
+              />
+              <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="password"
+                class="form-control"
+                id="floatingPassword"
+                placeholder="Password"
+              />
+              <label for="floatingPassword">Password</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="password"
                 class="form-control"
                 id="query"
                 placeholder="Password"
@@ -110,8 +129,8 @@
               <label for="floatingPassword">Query</label>
             </div>
             <a
-            class="w-100 btn btn-lg btn-primary"
-            onclick="contact()"
+              href="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRnXvdTrBMKkFXrkkvLgRDPZhVvjbTrdZWhKkrkfzlwjPmvZwfVqfmVjZhLXQJspLwMwlgB"
+              class="w-100 btn btn-lg btn-primary"
               >Send Us</a
             >
             <hr class="my-4" />
