@@ -102,7 +102,7 @@ app.post("/updateproducts", async (req, res) => {
     }
   } catch (error) {
     console.error(error);
-    res.status(500).json({ response: "Internal Server Error" });
+    res.status(500).json({ response: error });
   }
 });
 

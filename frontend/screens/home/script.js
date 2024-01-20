@@ -64,7 +64,8 @@ function dropdown(fruits) {
 const productNameElement = document.getElementById("product-name");
 const productSelection = document.getElementById("productSelection");
 const availableQuantity = document.getElementById("available-quantity");
-const newInput = document.getElementById("items-input");
+const priceDiv = document.getElementById("product-price");
+const newInput1 = document.getElementById("items-input");
 const productRight = document.getElementById("product-right");
 
 
@@ -84,11 +85,11 @@ productSelection.addEventListener("change", function () {
 
 function updateQuantities(){
   console.log("sdfa")
-  const inputValue = newInput.value;
-  data.products[productSelection.selectedIndex].quantity = inputValue;
-  newInput.value = ""
+  const inputValue1 = newInput1.value;
+  data.products[productSelection.selectedIndex].quantity = inputValue1;
+  newInput1.value = ""
   updateInDB(data.products)
-  console.log(inputValue)
+  console.log(inputValue1)
   console.log(data.products[productSelection.selectedIndex])
   availableQuantity.innerText = data.products[productSelection.selectedIndex].quantity
 }
@@ -110,4 +111,17 @@ function updateInDB(updatedData){
       console.log(updatedData)
       console.log(json);
     });
+}
+
+const newInput2 = document.getElementById("items-input-price");
+function updatePrice(){
+  console.log("pricekoclick")
+  const inputValue2 = newInput2.value;
+  console.log("dfa", data.products[productSelection.selectedIndex])
+  data.products[productSelection.selectedIndex].price = inputValue2;
+  inputValue2.value = "";
+  updateInDB(data.products)
+  priceDiv.innerText = data.products[productSelection.selectedIndex].price
+  console.log(inputValue2)
+
 }

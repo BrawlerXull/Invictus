@@ -85,6 +85,8 @@
         <select id="productSelection" name="products"></select>
     </div>
 
+    
+
 
     <div class="bg-white rounded-md px-3 py-2 w-[90%] m-auto product-right" id="product-right">
       <div class="md:flex md:justify-start block">
@@ -101,6 +103,10 @@
             <p class="font-semibold mb-2">Quantity Available :</p>
             <h2 id="available-quantity"></h2>
           </div>
+          <div class="flex">
+            <p class="font-semibold mb-2">Price :</p>
+            <h2 id="product-price"></h2>
+          </div>
 
           <p class="font-semibold mb-2">Add or Remove Items (Quantity)</p>
           <input
@@ -114,6 +120,19 @@
             class="text-white text-center md:block bg-indigo-500 cursor-pointer px-2 py-2 rounded hover:bg-indigo-300 hover:text-black mt-5"
           >
             <a onclick="updateQuantities()">Update the Quantity</a>
+          </div>
+          <p class="font-semibold mb-2">Update the Price (Price)</p>
+          <input
+            type="text"
+            name="first-name"
+            id="items-input-price"
+            autocomplete="given-name"
+            class="block w-full md:w-[400px] rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          />
+          <div
+            class="text-white text-center md:block bg-indigo-500 cursor-pointer px-2 py-2 rounded hover:bg-indigo-300 hover:text-black mt-5"
+          >
+            <a onclick="updatePrice()">Update the Price</a>
           </div>
         </div>
       </div>
