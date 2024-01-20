@@ -5,7 +5,14 @@ console.log(isLoggedIn);
 if (isLoggedIn === "false") {
   window.location.href = "../auth/index.html";
 }
+document.addEventListener('DOMContentLoaded', function () {
+  const button = document.querySelector('[data-collapse-toggle="navbar-default"]');
+  const menu = document.getElementById('navbar-default');
 
+  button.addEventListener('click', function () {
+      menu.classList.toggle('hidden');
+  });
+});
 
 console.log('ok')
 const email = localStorage.getItem('email');
