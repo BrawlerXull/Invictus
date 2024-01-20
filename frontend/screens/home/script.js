@@ -90,6 +90,7 @@ function updateQuantities(){
   updateInDB(data.products)
   console.log(inputValue)
   console.log(data.products[productSelection.selectedIndex])
+  availableQuantity.innerText = data.products[productSelection.selectedIndex].quantity
 }
 
 function updateInDB(updatedData){
