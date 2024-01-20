@@ -128,3 +128,8 @@ function updatePrice(){
   console.log(inputValue2)
 
 }
+
+function sendTo(url1) {
+  console.log(url1);
+  window.location.href = `../${url1}/index.html`;
+}

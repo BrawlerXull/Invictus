@@ -1,5 +1,11 @@
 const url = "https://invictus-backend.vercel.app/";
 // const url = "http://localhost:5100/";
+const isLoggedIn = localStorage.getItem("isLoggedIn");
+console.log(isLoggedIn);
+if (isLoggedIn === "false") {
+  window.location.href = "../auth/index.html";
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     const button = document.querySelector('[data-collapse-toggle="navbar-default"]');
     const menu = document.getElementById('navbar-default');
@@ -54,4 +60,10 @@ async function sendQuery(){
     .then((json) => {
       console.log(json);
     });
+}
+
+
+function sendTo(url1) {
+  console.log(url1);
+  window.location.href = `../${url1}/index.html`;
 }
