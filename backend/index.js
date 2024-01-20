@@ -44,7 +44,7 @@ app.post('/sign', async (req, res) => {
       res.status(201).send({ "response": "New user created" });
   } catch (error) {
       console.error(error);
-      res.status(500).send({ "response": "Internal Server Error" });
+      res.status(500).send({ "response": error });
   }
 });
 
