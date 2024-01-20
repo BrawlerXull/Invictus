@@ -2,19 +2,19 @@ const mongoose = require('mongoose')
 
 const UserSchema = mongoose.Schema({
     email :{
-        required : true,
+        // required : true,
         type : String
     },
     password : {
-        required : true,
+        // required : true,
         type : String
     },
     name : {
-        required : true,
+        // required : true,
         type : String
     },
     address : {
-        required : true,
+        // required : true,
         type : String
     },
     coowner1: {
@@ -25,11 +25,11 @@ const UserSchema = mongoose.Schema({
     },
     phone : {
         type : String,
-        required : true
+        // required : true
     },
     contact : {
-        type : String ,
-        required : true
+        type : String,
+        // required : true
     }
 })
 
