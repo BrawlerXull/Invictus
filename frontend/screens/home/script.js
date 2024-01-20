@@ -78,6 +78,7 @@ productSelection.addEventListener("change", function () {
     var selectedProduct = productSelection.value;
     console.log(data.products[productSelection.selectedIndex].quantity)
     availableQuantity.innerText = data.products[productSelection.selectedIndex].quantity
+    priceDiv.innerText = data.products[productSelection.selectedIndex].price
     productNameElement.innerHTML = "Selected Product: " + selectedProduct;
 });
 
@@ -92,6 +93,7 @@ function updateQuantities(){
   console.log(inputValue1)
   console.log(data.products[productSelection.selectedIndex])
   availableQuantity.innerText = data.products[productSelection.selectedIndex].quantity
+  priceDiv.innerText = data.products[productSelection.selectedIndex].price
 }
 
 function updateInDB(updatedData){
@@ -122,6 +124,7 @@ function updatePrice(){
   inputValue2.value = "";
   updateInDB(data.products)
   priceDiv.innerText = data.products[productSelection.selectedIndex].price
+  availableQuantity.innerText = data.products[productSelection.selectedIndex].quantity
   console.log(inputValue2)
 
 }
