@@ -30,3 +30,8 @@ function signOut() {
   localStorage.setItem("email", "");
   window.location.href = "../auth/index.html";
 }
+
+function dropdownmenu() {
+  var dropdown = document.getElementById("dropdown-menu");
+  dropdown.classList.toggle("hidden");
+}
