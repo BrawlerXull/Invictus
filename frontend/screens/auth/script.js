@@ -52,6 +52,7 @@ async function signUpUser() {
   const z = document.getElementById("username-signin").querySelector("input").value;
   const coowner1 = document.getElementById("co-username1-signin").querySelector("input").value;
   const coowner2 = document.getElementById("co-username2-signin").querySelector("input").value;
+  const phone = document.getElementById("phone-signin").querySelector("input").value;
 
   fetch(url + "sign", {
     method: "POST",
@@ -61,7 +62,8 @@ async function signUpUser() {
       name : z,
       address : address,
       coowner1 : coowner1,
-      coowner2:coowner2
+      coowner2:coowner2,
+      phone : phone
     }),
     headers: {
       "Content-type": "application/json; charset=UTF-8",

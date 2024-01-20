@@ -19,13 +19,15 @@ app.post('/sign', async (req, res) => {
       const address = req.body.address;
       const coowner1 = req.body.coowner1;
       const coowner2 = req.body.coowner2;
+      const phone = req.body.phone;
       const newUser = {
           email: x,
           password: y,
           name : z,
           address : address,
           coowner1:coowner1,
-          coowner2:coowner2
+          coowner2:coowner2,
+          phone : phone
       };
       
       const resp = await User.findOne({ email: x });

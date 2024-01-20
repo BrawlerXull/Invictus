@@ -23,6 +23,10 @@ const UserSchema = mongoose.Schema({
     coowner2: {
         type: String
     },
+    phone : {
+        type : String,
+        required : true
+    }
 })
 
 module.exports = mongoose.model('User', UserSchema);
