@@ -29,7 +29,7 @@ app.post('/sign', async (req, res) => {
           coowner1:coowner1,
           coowner2:coowner2,
           phone : phone,
-          company : company,
+          company : company
       };
       
       const resp = await User.findOne({ email: x });
