@@ -1,5 +1,6 @@
 const express = require("express");
 const User = require("./schema/schema");
+const Query = require("./schema/query");
 const cors = require("cors");
 require("./db/db");
 const app = express();
@@ -81,6 +82,25 @@ app.post("/getuser", async (req, res) => {
     res.status(500).send({ response: "Internal Server Error" });
   }
 });
+
+app.post('/query' , async(req , res)=>{
+  try{
+    const x = req.body.email;
+    const y = req.body.query;
+
+    const newQuery = {
+      email : x,
+      query : y
+    }
+
+    const result = await User.create(newQuery);
+
+    res.status(200).send({ response: "Successfully creatd query", user: result });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ response: error });
+  }
+})
 
 app.post("/updateproducts", async (req, res) => {
   try {
