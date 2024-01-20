@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Sofia');
+@import url('https://fonts.googleapis.com/css?family=Trirong');
+
+body {
+    background-color: #006da8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url("https://www.transparenttextures.com/patterns/white-wall-3-2.png");
+    margin: 0;
+
+}
+
+.company-name {
+    font-family: "Sofia", sans-serif;
+    color: aqua;
+    font-size: 40px;
+}
+
+.profile-info {
+    font-family: "Trirong", serif;
+    color: aqua;
+    font-size: 30px;
+}
+
+.profile-info-title {
+    font-family: "Trirong", serif;
+    color: aqua;
+    font-size: 30px;
+}
+
+.title-section {
+    margin-right: 100px;
+}
+.profile-section {
+    margin-left: 100px;
+}
+
+@media only screen and (max-width: 600px) {
+    .company-name {
+        font-size: 30px;
+    }
+
+    .title-section,
+.profile-section{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+    body{
+        flex-direction: column;
+    }
+
+    .profile-info {
+        font-size: 20px;
+    }
+
+    .profile-info-title {
+        font-size: 20px;
+    }
+}
