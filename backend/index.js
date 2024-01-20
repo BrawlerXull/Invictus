@@ -93,7 +93,7 @@ app.post('/query' , async(req , res)=>{
       query : y
     }
 
-    const result = await User.create(newQuery);
+    const result = await Query.create(newQuery);
 
     res.status(200).send({ response: "Successfully creatd query", user: result });
   } catch (error) {
