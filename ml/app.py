@@ -15,7 +15,6 @@ def predict_profit(model, year):
 def main():
     st.title('Profit Prediction App')
 
-    # Load data
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
     df = load_data(uploaded_file)
 
