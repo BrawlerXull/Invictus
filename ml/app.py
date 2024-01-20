@@ -16,22 +16,17 @@ def predict_profit(model, year):
 
 def main():
     st.title('Profit Prediction and Data Visualization App')
-
-    # Create tabs
     tabs = st.tabs(["Predict Profit", "Data Visualization"])
-
-    # First tab: Predict Profit
     with tabs[0]:
         uploaded_file_predict = st.file_uploader("Choose a CSV file for prediction", type=["csv"])
         df_predict = load_data(uploaded_file_predict)
-
         if df_predict is not None:
             df_predict['profit'] = df_predict['profit']
 
             X_predict = df_predict[['year']]
             y_predict = df_predict['profit']
 
-            X_train, X_test, y_train, y_test = train_test_split(X_predict, y_predict, test_size=0.2, random_state=69)
+            X_train, X_test, y_train, y_test = train_test_split(X_predict, y_predict, test_size=0, random_state=69)
 
             model_predict = LinearRegression()
             model_predict.fit(X_train, y_train)
@@ -46,7 +41,6 @@ def main():
             st.subheader('Data Preview for Prediction')
             st.write(df_predict)
 
-    # Second tab: Data Visualization
     with tabs[1]:
         uploaded_file_visualize = st.file_uploader("Choose a CSV file for data visualization", type=["csv"])
         df_visualize = load_data(uploaded_file_visualize)
@@ -54,8 +48,7 @@ def main():
             st.subheader('Data Preview for Visualization')
             st.write(df_visualize)
 
-            # Add data visualization
-            st.subheader('Bar Chart for Product Prices')
+            st.subheader('Product Prices')
             plt.figure(figsize=(10, 6))
             sns.barplot(x='name', y='price', data=df_visualize)
             plt.xlabel('Product Name')
@@ -63,7 +56,7 @@ def main():
             plt.title('Product Prices')
             st.pyplot()
 
-            st.subheader('Bar Chart for Product Quantities')
+            st.subheader('Product Quantities')
             plt.figure(figsize=(10, 6))
             sns.barplot(x='name', y='quantity', data=df_visualize)
             plt.xlabel('Product Name')
@@ -71,5 +64,9 @@ def main():
             plt.title('Product Quantities')
             st.pyplot()
 
+
+
+
+st.set_option('deprecation.showPyplotGlobalUse', False)
 if __name__ == '__main__':
     main()
