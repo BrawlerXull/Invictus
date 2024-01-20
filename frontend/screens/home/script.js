@@ -133,3 +133,12 @@ function sendTo(url1) {
   console.log(url1);
   window.location.href = `../${url1}/index.html`;
 }
+const nameProduct = document.getElementById('name-product')
+const quantityProduct = document.getElementById('quantity-product')
+const priceProduct = document.getElementById('price-product')
+
+function addProduct(){
+  data.products.push({name:nameProduct.value,quantity:quantityProduct.value,price:priceProduct.value})
+  updateInDB(data.products)
+  console.log(data.products)
+}
