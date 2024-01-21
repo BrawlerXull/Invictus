@@ -66,7 +66,6 @@ const editProfile = document.getElementById('edit-profile')
 function edit(){
   console.log("dfasd")
   // if(editProfile.style.display == "none"){
-    editProfile.style.display = "block";
   // }else {
   //   editProfile.style.display = "none";
   // }
@@ -77,6 +76,12 @@ function edit(){
 
   const inputAddress = document.getElementById('items-input-address')
   const inputPhone = document.getElementById('items-input-phone')
+
+  
+
+  if(inputAddress.value == "" || inputCoowner1.value == "" || inputCoowner2.value == "" || inputPhone.value == ""){
+    return alert("Please fill all values");
+  }
 
   fetch(url + 'updateuser' ,{
     method: "POST",
@@ -100,6 +105,7 @@ function edit(){
     inputCoowner2.value = ""
     inputPhone.value = ""
     inputAddress.value = ""
+    location.reload()
     console.log(json)
   });
 
@@ -107,4 +113,9 @@ function edit(){
   console.log(inputCoowner2.value)
   console.log(inputPhone.value)
   console.log(inputAddress.value)
+}
+
+function show(){
+  editProfile.style.display = "block";
+  
 }
