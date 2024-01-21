@@ -126,6 +126,37 @@ app.post("/updateproducts", async (req, res) => {
   }
 });
 
+app.post("/updateuser", async (req, res) => {
+  try {
+    const userEmail = req.body.email;
+    const coowner1 = req.body.coowner1;
+    const coowner2 = req.body.coowner2;
+    const phone = req.body.phone;
+    const address = req.body.address;
+
+
+
+    const updatedUser = await User.findOneAndUpdate(
+      { email: userEmail },
+      { $set: { coowner1: coowner1 ,coowner2:coowner2 , phone : phone ,address ,address} },
+      { new: true }
+    );
+
+    if (updatedUser) {
+      res
+        .status(200)
+        .json({ response: "Successfully updated user", user: updatedUser });
+    } else {
+      res.status(404).json({ response: "User not found" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ response: error });
+  }
+});
+
+
+
 app.listen("5100", () => {
   console.log("Server started");
 });

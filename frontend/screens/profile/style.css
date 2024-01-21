@@ -24,3 +24,7 @@ body {
     cursor: pointer;
     color: darkblue;
 }
+#edit-profile {
+    display: none;
+
+}

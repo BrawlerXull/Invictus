@@ -1,4 +1,5 @@
 const url = "https://invictus-backend.vercel.app/";
+// const url = "http://localhost:5100/";
 const isLoggedIn = localStorage.getItem("isLoggedIn");
 
 console.log(isLoggedIn);
@@ -56,4 +57,54 @@ function sendTo(url1) {
 function signOut(){
   localStorage.setItem('isLoggedIn', 'false');
   window.location.href = '../auth/index.html';
+}
+
+
+
+const editProfile = document.getElementById('edit-profile')
+
+function edit(){
+  console.log("dfasd")
+  // if(editProfile.style.display == "none"){
+    editProfile.style.display = "block";
+  // }else {
+  //   editProfile.style.display = "none";
+  // }
+
+
+  const inputCoowner1 = document.getElementById('items-input-coowner1')
+  const inputCoowner2 = document.getElementById('items-input-coowner2')
+
+  const inputAddress = document.getElementById('items-input-address')
+  const inputPhone = document.getElementById('items-input-phone')
+
+  fetch(url + 'updateuser' ,{
+    method: "POST",
+    body: JSON.stringify({
+      email: email,
+      coowner1 : inputCoowner1.value,
+      coowner2 : inputCoowner2.value,
+      phone : inputPhone.value,
+      address : inputAddress.value
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+  .then((response) => {
+    console.log("Status code:", response.status);
+    return response.json();
+  })
+  .then((json) => {
+    inputCoowner1.value = ""
+    inputCoowner2.value = ""
+    inputPhone.value = ""
+    inputAddress.value = ""
+    console.log(json)
+  });
+
+  console.log(inputCoowner1.value)
+  console.log(inputCoowner2.value)
+  console.log(inputPhone.value)
+  console.log(inputAddress.value)
 }
