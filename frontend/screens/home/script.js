@@ -96,24 +96,7 @@ function updateQuantities(){
   priceDiv.innerText = data.products[productSelection.selectedIndex].price
 }
 
-function updateInDB(updatedData){
-  console.log("update",updatedData)
-  fetch(url + "updateproducts", {
-    method: "POST",
-    body: JSON.stringify({
-      email: userEmail,
-      products : updatedData
-    }),
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-    },
-  })
-    .then((resp) => resp.json())
-    .then((json) => {
-      console.log(updatedData)
-      console.log(json);
-    });
-}
+
 
 const newInput2 = document.getElementById("items-input-price");
 function updatePrice(){
@@ -140,6 +123,9 @@ const priceProduct = document.getElementById('price-product')
 function addProduct(){
   data.products.push({name:nameProduct.value,quantity:quantityProduct.value,price:priceProduct.value})
   updateInDB(data.products)
+  nameProduct.value = "",
+  quantityProduct.value = "",
+  priceProduct.value = ""
   console.log(data.products)
 }
 
@@ -170,4 +156,26 @@ function downloadCSV(data) {
 function makeCSV(){
   console.log("Called")
   downloadCSV(data.products);
+}
+
+function updateInDB(updatedData){
+  console.log("update",updatedData)
+  fetch(url + "updateproducts", {
+    method: "POST",
+    body: JSON.stringify({
+      email: userEmail,
+      products : updatedData
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((resp) => resp.json())
+    .then((json) => {
+      newInput1.value = "",
+      newInput2.value = ""
+      location.reload()
+      console.log(updatedData)
+      console.log(json);
+    });
 }
