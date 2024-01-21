@@ -17,7 +17,7 @@ body {
 }
 
 .owner{
-    font-family:'Sevillana', cursive;
+    font-family:'Sofia', 'serif';
 }
 
 .owner:hover {
@@ -27,4 +27,9 @@ body {
 #edit-profile {
     display: none;
 
+}
+
+#company-name {
+
+    font-family:'Sofia', 'serif';
 }

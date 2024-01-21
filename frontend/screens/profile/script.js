@@ -114,8 +114,9 @@ function edit(){
   console.log(inputPhone.value)
   console.log(inputAddress.value)
 }
-
+const editButton = document.getElementById('edit-profile-button')
 function show(){
   editProfile.style.display = "block";
+  editButton.style.display = "none"
   
 }
